@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!--Head-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Scooter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b801578fa3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" type="image/png" href="./img/scooter.png" />
+</head>
+
+<!--body-->
+
+<body>
+    <header>
+        <div class="hoofd row">
+            <img src="./img/vraag.jpg" alt="vraag"> <!--Image van de header-->
+            <p class="text">Contact</p>
+        </div>
+    </header>
+    <nav> <!--Nav-bar-->
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="over.html"><i class="fa-solid fa-person"></i> Over mij</a>
+    </nav>
+    <main> <!--Main-->
+        <div class="sections">
+            <section>
+                <article class="contact-main"> <!--FAQ section-->
+                    <h2>FAQ</h2>
+                    <p class="vraag">
+                        Hoe heb jij deze website gemaakt?
+                    </p>
+                    <p class="antwoord">
+                        Ik heb deze website zelf gemaakt met HTML en CSS. Ik heb de technieken die ik heb geleerd
+                        tijdens mijn opleiding op deze website toegepast.
+                    </p>
+
+                    <p class="vraag">
+                        Waarom volg jij de opleiding Software Developer?
+                    </p>
+                    <p class="antwoord">
+                        Ik volg de opleiding Software Developer omdat ik eigenlijk al sinds mijn kindertijd
+                        geïnteresseerd ben in computers. Thuis ben ik al anderhalf jaar aan het coderen als hobby, en ik
+                        hoop nu hier later mijn beroep van te maken!
+                    </p>
+                </article>
+            </section>
+            <section>
+                <article> <!--Sociale media en contact-->
+                    <h2>Sociale media en contact</h2>
+                    <p>U kunt mijn sociale media en de platformen waar u contact met mij kunt opnemen hieronder vinden.
+                        Er wordt binnen 24 uur contact met u opgenomen.</p>
+                    <a class="icon" target="_blank"
+                        href="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRpdTSrzVlPmTtXcKZgHMPCSpxRWXBDkfnTHxxswFRMhnzSVKvDgjgWlSWFSShbHphgMFjV"><i
+                            class="fa-solid fa-envelope"></i></a>
+                    <a class="icon" target="_blank" href="https://github.com/Daan0101"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a class="icon" target="_blank" href="https://www.linkedin.com/in/daan-schouten-550051295/"><i
+                            class="fa-brands fa-linkedin-in"></i></a>
+                </article>
+            </section>
+        </div>
+        <aside> <!--Nieuwsbrief-->
+            <h2>Schrijf je in voor de nieuws-brief!</h2>
+            <form onsubmit="sendContact(event)">
+                <div class="fields">
+                    <label for="emailInput">Vul hier jouw e-mail adres in.</label>
+                    <input type="email" id="emailInput">
+                </div>
+                <div class="fields">
+                    <label for="messageInput">Vul hier je bericht in.</label>
+                    <textarea id="messageInput" rows="3"></textarea>
+                </div>
+                <button type="submit">Verstuur</button>
+            </form>
+
+            <script>
+                async function sendContact(ev) {
+                    ev.preventDefault();
+
+                    const senderEmail = document.getElementById('emailInput').value;
+                    const senderMessage = document.getElementById('messageInput').value;
+
+                    const webhookBody = {
+                        embeds: [{
+                            title: 'Contact Form Submitted',
+                            fields: [
+                                { name: 'Sender', value: senderEmail },
+                                { name: 'Message', value: senderMessage }
+                            ]
+                        }],
+                    };
+
+                    const webhookUrl = 'https://discord.com/api/webhooks/1164492704907001887/oMmFX0jPGWc-gJq5xkCTyap4UqzbqecLkJO8ua1M8dBeb-A3fhoNuQpX9jT_Xd8Hluj8';
+
+                    const response = await fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(webhookBody),
+                    });
+
+                    if (response.ok) {
+                        alert('Ik heb jouw message ontvangen!');
+                    } else {
+                        alert('Er is een error, probeer het later opnieuw!');
+                    }
+                }
+            </script>
+        </aside>
+    </main>
+    <footer> <!--Footer-->
+        <p>
+            &copy; Daan Schouten | <a
+                href="https://blog.slido.com/wp-contploads/2023/05/slido-bent/ulog-cover-1600x1066px-3.jpg"
+                target="_blank">Klik hier voor plaatjes & bronnen</a>
+        </p>
+    </footer>
+    <script src="source/title.js" language="javascript"></script> <!--Bewegende titel-->
+</body>
+
+</html>

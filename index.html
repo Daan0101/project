@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head> <!--Head-->
+    <title>Mijn scooter</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b801578fa3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" type="image/png" href="./img/scooter.png" />
+
+</head>
+
+<body>
+    <header>
+        <div class="hoofd row">
+            <img src="./img/scooter.png" alt="scooter"> <!--Head image-->
+            <p class="text">
+                Mijn Scooter
+            </p>
+    </header>
+    <nav> <!--Nav-bar-->
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="over.html"><i class="fa-solid fa-person"></i> Over mij</a>
+    </nav>
+    <main>
+        <div class="sections">
+            <section>
+                <article> <!--article-->
+                    <h2>Mijn website</h2>
+                    <p>Welkom op mijn website. Ik heb deze website gemaakt als schoolopdracht waar ik graag laat zien
+                        wat mijn hobby is en dat is mijn scooter. U kunt zich aanmelden voor de nieuwsbrief, deze
+                        ontvangt u als ik nieuws heb op scooter gebied.</p>
+                </article>
+            </section>
+            <section>
+                <article> <!--article-->
+                    <h2>Mijn Scooter</h2>
+                    <p>Een van de opvallende kenmerken van de Piaggio Zip 50 is zijn slanke en eigentijdse ontwerp, wat
+                        hem
+                        onderscheidt van andere scooters op de markt. Het gestroomlijnde silhouet en de aantrekkelijke
+                        lijnen dragen bij aan zijn moderne uitstraling, waardoor hij zowel functioneel als esthetisch
+                        aantrekkelijk is.
+
+                        Met een 50cc-motor is de Piaggio Zip 50 bedoeld voor gebruik in stedelijke gebieden waar
+                        manoeuvreerbaarheid van groot belang is. De lichte constructie van de scooter, gecombineerd met
+                        zijn
+                        compacte afmetingen, maakt het gemakkelijk om door druk stadsverkeer te navigeren en smalle
+                        straten
+                        te doorkruisen. Het is een ideale keuze voor pendelaars die op zoek zijn naar een efficiënt en
+                        zuinig vervoermiddel.
+                        *bron: chatgpt
+                    </p>
+                    <img class="bimg" src="./img/scooter123.jpg" alt="scooter123">
+
+                </article>
+            </section>
+
+        </div>
+        <aside> <!--A-Side-->
+            <h2>Schrijf je in voor de nieuws-brief!</h2>
+            <form onsubmit="sendContact(event)">
+                <div class="fields">
+                    <label for="emailInput">Vul hier jouw e-mail adres in.</label>
+                    <input type="email" id="emailInput">
+                </div>
+                <div class="fields">
+                    <label for="messageInput">Vul hier je bericht in.</label>
+                    <textarea id="messageInput" rows="3"></textarea>
+                </div>
+                <button type="submit">Verstuur</button>
+            </form>
+
+            <script>
+                async function sendContact(ev) {
+                    ev.preventDefault();
+
+                    const senderEmail = document.getElementById('emailInput').value;
+                    const senderMessage = document.getElementById('messageInput').value;
+
+                    const webhookBody = {
+                        embeds: [{
+                            title: 'Contact Form Submitted',
+                            fields: [
+                                { name: 'Sender', value: senderEmail },
+                                { name: 'Message', value: senderMessage }
+                            ]
+                        }],
+                    };
+
+                    const webhookUrl = 'https://discord.com/api/webhooks/1164492704907001887/oMmFX0jPGWc-gJq5xkCTyap4UqzbqecLkJO8ua1M8dBeb-A3fhoNuQpX9jT_Xd8Hluj8';
+
+                    const response = await fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(webhookBody),
+                    });
+
+                    if (response.ok) {
+                        alert('Ik heb jouw message ontvangen!');
+                    } else {
+                        alert('Er is een error, probeer het later opnieuw!');
+                    }
+                }
+            </script>
+        </aside>
+    </main>
+    <footer> <!--Footer-->
+        <p>
+            &copy; Daan Schouten | <a
+                href="https://cdn.rogertrading.nl/wp-content/uploads/2022/11/Piaggio-Zip-50-Brom-2019-4-Takt-3V-Custom-SP-Black-on-White-10.webp"
+                target="_blank">Klik hier voor plaatjes & bronnen</a>
+        </p>
+    </footer>
+    <script src="source/title.js" language="javascript"></script> <!--Bewegende titel-->
+</body>
+
+</html>

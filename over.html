@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head> <!--Head-->
+    <title>Mijn Scooter</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b801578fa3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" type="image/png" href="./img/scooter.png" />
+</head>
+
+<body>
+    <header> <!--header-->
+        <div class="hoofd row">
+            <img src="./img/1696852536169.jpg" alt="daan">
+            <p class="text">
+                Daan Schouten
+            </p>
+    </header>
+    <nav> <!--Nav-Bar-->
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="over.html"><i class="fa-solid fa-person"></i> Over mij</a>
+    </nav>
+    <main>
+        <div class="sections">
+            <section>
+                <article> <!--article-->
+                    <h2>Algemeen</h2>
+                    <p>Hello world, Ik ben Daan Schouten, een 17 jarige Nederlandse student aan het horizon college
+                        Alkmaar
+                        waar ik de
+                        opleiding tot Software Developer volg. </p>
+                </article>
+            </section>
+            <section>
+                <article> <!--article-->
+                    <h2>Opleiding</h2>
+                    <p>Sinds ik 16 jaar was, ben ik begonnen met programmeren. Ik zag toen een YouTube-video van iets
+                        dat me leuk leek om na te maken. Ik volgde de tutorial en nadat ik klaar was, was ik heel trots.
+                        Daarna werd ik geobsedeerd. Ik wilde meer leren over programmeren en kwam zo in Python terecht.
+                        Toen ik 17 jaar was en een diploma op het mbo had behaald, ben ik naar het Horizon College in
+                        Heerhugowaard gegaan, waar ik aanvankelijk de opleiding tot E-Commerce Specialist wilde volgen.
+                        Na drie weken besloot ik echter van opleiding te wisselen om van mijn hobby mijn studie te
+                        maken: Software Development. Nu leer ik op mijn opleiding nieuwe talen waar ik veel aan heb!</p>
+                </article>
+            </section>
+        </div>
+        <aside> <!--A-side-->
+            <h2>Schrijf je in voor de nieuws-brief!</h2>
+            <form onsubmit="sendContact(event)">
+                <div class="fields">
+                    <label for="emailInput">Vul hier jouw e-mail adres in.</label>
+                    <input type="email" id="emailInput">
+                </div>
+                <div class="fields">
+                    <label for="messageInput">Vul hier je bericht in.</label>
+                    <textarea id="messageInput" rows="3"></textarea>
+                </div>
+                <button type="submit">Verstuur</button>
+            </form>
+
+            <script>
+                async function sendContact(ev) {
+                    ev.preventDefault();
+
+                    const senderEmail = document.getElementById('emailInput').value;
+                    const senderMessage = document.getElementById('messageInput').value;
+
+                    const webhookBody = {
+                        embeds: [{
+                            title: 'Contact Form Submitted',
+                            fields: [
+                                { name: 'Sender', value: senderEmail },
+                                { name: 'Message', value: senderMessage }
+                            ]
+                        }],
+                    };
+
+                    const webhookUrl = 'https://discord.com/api/webhooks/1164492704907001887/oMmFX0jPGWc-gJq5xkCTyap4UqzbqecLkJO8ua1M8dBeb-A3fhoNuQpX9jT_Xd8Hluj8';
+
+                    const response = await fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(webhookBody),
+                    });
+
+                    if (response.ok) {
+                        alert('Ik heb jouw message ontvangen!');
+                    } else {
+                        alert('Er is een error, probeer het later opnieuw!');
+                    }
+                }
+            </script>
+        </aside>
+    </main>
+    <footer> <!--Footer-->
+        <p>
+            &copy; Daan Schouten
+        </p>
+    </footer>
+    <script src="source/title.js" language="javascript"></script> <!--Bewegende titel-->
+</body>
+
+</html>

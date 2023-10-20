@@ -1,0 +1,245 @@
+/*  HTML & body */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/*  Custom cursor   */
+html,
+button {
+    cursor: url('./img/icons8-scooter-30.png'), auto;
+}
+
+/*  main    */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*  Each section    */
+.sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+section {
+    flex: 1;
+    padding: 15px;
+    border-style: groove;
+}
+
+section:nth-child(1) {
+    background-color: #d8572a;
+}
+
+section:nth-child(2) {
+    background-color: #d8572a;
+}
+
+/*   Header   */
+header {
+    background-color: #333;
+    color: #fff;
+    border-style: groove;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+    background-color: firebrick;
+    padding: 10px;
+}
+
+.text {
+    font-size: 35px;
+    color: white;
+}
+
+img {
+    border-radius: 50%;
+    height: auto;
+    width: 8%;
+}
+
+/*   NAV   */
+nav {
+    color: #fff;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #333;
+    border-style: groove;
+}
+
+
+/*   ASIDE    */
+aside {
+    background-color: #db7c26;
+    padding: 20px;
+    border-style: groove;
+    width: 35%;
+}
+
+
+/*  Button  */
+button {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    border-style: solid;
+    border-color: #333;
+    text-decoration: none;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    border-color: #333;
+}
+
+
+/*  text colors   */
+i,
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover,
+i:hover {
+    color: red;
+}
+
+
+/*  icon    */
+.icon {
+    background-color: #333;
+    border-radius: 25%;
+    font-size: 35px;
+    padding: 10px;
+}
+
+.icon:hover {
+    font-size: 40px;
+}
+
+
+/*  Contact form    */
+.fields {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+/*  FAQ  */
+.vraag {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.antwoord {
+    color: black;
+}
+
+/*  image   */
+.bimg {
+    width: auto;
+    height: 300px;
+    border-radius: 0%;
+}
+
+/*  Footer  */
+footer {
+    background-color: firebrick;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-style: groove;
+}
+
+
+/*  Responsive @media    */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .text {
+        font-size: 24px;
+    }
+
+    nav {
+        flex-direction: row;
+    }
+
+    main {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .sections {
+        width: 100%;
+    }
+
+    .icon {
+        font-size: 30px;
+    }
+
+    aside {
+        width: auto
+    }
+
+    img {
+        width: auto;
+        height: 100px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .text {
+        font-size: 18px;
+    }
+
+    .icon {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 320px) {
+    .text {
+        font-size: 16px;
+    }
+
+    .icon {
+        font-size: 20px;
+    }
+}
